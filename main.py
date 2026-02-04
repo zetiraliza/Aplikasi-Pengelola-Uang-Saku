@@ -28,7 +28,7 @@ def tambah_pengeluaran():
         print("Input tidak valid. Masukkan angka.")
 
 def lihat_saldo():
-    print("=== Saldo Saat Ini ===")
+    print("=== Saldo Sekarang ===")
     # Tampilkan dengan pemisah ribuan dan 2 angka desimal
     print(f"Saldo: Rp {saldo:,.2f}")
 
