@@ -1,0 +1,56 @@
+saldo = 0
+
+def tambah_pemasukan():
+    global saldo
+    try:
+        jumlah = float(input("Masukkan jumlah pemasukan: "))
+        if jumlah <= 0:
+            print("Jumlah harus lebih dari 0")
+            return
+        saldo += jumlah
+        print(f"Pemasukan sebesar {jumlah} berhasil ditambahkan. Saldo sekarang: {saldo}")
+    except ValueError:
+        print("Input tidak valid. Masukkan angka.")
+
+def tambah_pengeluaran():
+    global saldo
+    try:
+        jumlah = float(input("Masukkan jumlah pengeluaran: "))
+        if jumlah <= 0:
+            print("Jumlah harus lebih dari 0")
+            return
+        if jumlah > saldo:
+            print("Saldo tidak cukup. Transaksi dibatalkan.")
+            return
+        saldo -= jumlah
+        print(f"Pengeluaran sebesar {jumlah} berhasil dikurangi. Saldo sekarang: {saldo}")
+    except ValueError:
+        print("Input tidak valid. Masukkan angka.")
+
+def lihat_saldo():
+    print("=== Saldo Saat Ini ===")
+    # Tampilkan dengan pemisah ribuan dan 2 angka desimal
+    print(f"Saldo: Rp {saldo:,.2f}")
+
+def menu():
+    print("=== Aplikasi Pengelola Uang Saku ===")
+    print("1. Tambah pemasukan")
+    print("2. Tambah pengeluaran")
+    print("3. Lihat saldo")
+    print("4. Keluar")
+
+while True:
+    menu()
+    pilihan = input("Pilih menu: ")
+
+    if pilihan == "1":
+        tambah_pemasukan()
+    elif pilihan == "2":
+        tambah_pengeluaran()
+    elif pilihan == "3":
+        lihat_saldo()
+    elif pilihan == "4":
+        print("Terima kasih!")
+        break
+    else:
+        print("Pilihan tidak valid")
